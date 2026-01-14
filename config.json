@@ -1,0 +1,36 @@
+{
+  "paths": ["/usr/"],
+
+  "file_masks": ["*.sh"],
+
+  "scan_interval_seconds": 300,
+
+  "hash_algorithm": "sha256",
+
+  "database": {
+    "path": "data/fim.db"
+  },
+
+  "logging": {
+    "level": "INFO",
+    "log_file": "fim.log"
+  },
+
+  "alerts": {
+    
+    "telegram": {
+      "enabled": false,
+      "bot_token": "",
+      "chat_id": ""
+    },
+    
+    "email": {
+      "enabled": false,
+      "smtp_server": "smtp.example.com",
+      "username": "",
+      "password": "",
+      "sender": "",
+      "receiver": ""
+    }
+  }
+}
