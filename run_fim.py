@@ -3,9 +3,9 @@ import logging.handlers
 import sys
 import threading
 import time
-
 from watchdog.observers import Observer
 
+from fim.scanner import Scanner
 from fim.config import Config
 
 
@@ -43,6 +43,9 @@ def main():
         cfg.get("hash_algorithm", "sha256")
     )
 
+    observer = Observer()
+    observer.start()
+
     logging.info("Watchdog observer started")
 
     t = threading.Thread(
@@ -52,6 +55,12 @@ def main():
     )
     t.start()
 
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        observer.stop()
+    observer.join()
 
 if __name__ == "__main__":
     main()

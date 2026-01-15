@@ -4,7 +4,7 @@
 
   - **`In developmeny ⚙️`**
   - [x] File hash calculation (SHA-256)
-  - [ ] Periodic file system scan
+  - [x] Periodic file system scan
   - [ ] Real-time monitoring (watchdog)
   - [ ] File create / modify / delete detection
   - [ ] SQLite database storage
@@ -30,7 +30,7 @@
 
   - Monitoring methods:
     - Real-time event monitoring (`watchdog`)
-    - Periodic full directory scan (fallback & verification)
+    - Periodic full directory scan
 
 ---
 
