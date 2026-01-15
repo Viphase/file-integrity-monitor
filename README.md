@@ -2,7 +2,7 @@
 
 - ## status:
 
-  - **`In developmeny ⚙️`**
+  - **`In development ⚙️`**
   - [x] File hash calculation (SHA-256)
   - [x] Periodic file system scan
   - [ ] Real-time monitoring (watchdog)
