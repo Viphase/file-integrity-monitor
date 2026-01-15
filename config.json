@@ -1,9 +1,9 @@
 {
-  "paths": ["/usr/"],
+  "paths": ["/Users/viphase/Downloads/8h-server"],
 
-  "file_masks": ["*.sh"],
+  "file_masks": ["*"],
 
-  "scan_interval_seconds": 300,
+  "scan_interval_seconds": 1000,
 
   "hash_algorithm": "sha256",
 
@@ -13,7 +13,7 @@
 
   "logging": {
     "level": "INFO",
-    "log_file": "fim.log"
+    "log_file": "logs/fim.log"
   },
 
   "alerts": {

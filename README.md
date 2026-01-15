@@ -8,7 +8,7 @@
   - [ ] Real-time monitoring (watchdog)
   - [ ] File create / modify / delete detection
   - [ ] SQLite database storage
-  - [ ] Logging system
+  - [x] Logging system
   - [ ] Telegram notifications
   - [ ] Email notifications
 
@@ -40,7 +40,7 @@
   1. Open terminal and clone the repository:
      ```
      git clone https://github.com/your-username/file-integrity-monitor.git
-     cd file-integrity-monitor
+     cd FileIntegrityMonitor
      ```
   2. Create and activate virtual environment  
 
@@ -74,7 +74,7 @@
 
   - Key parameters:
     - `paths` — directories to monitor
-    - `file_masks` — file patterns (`*.py`, `*.txt`, etc.)
+    - `file_masks` — file patterns (`*.py`, `*.txt`, etc., `*` - for all files)
     - `scan_interval_seconds` — periodic scan interval
     - `hash_algorithm` — hash algorithm (default: `sha256`)
     - `alerts` — notification settings (Telegram / Email)
