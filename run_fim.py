@@ -7,7 +7,7 @@ from watchdog.observers import Observer
 
 from fim.scanner import Scanner
 from fim.watcher import EventHandler
-
+from fim.notifier import Notifier
 from fim.config import Config
 
 
@@ -37,14 +37,16 @@ def main():
         getattr(logging, cfg.get("logging", {}).get("level", "INFO"))
     )
 
+    database = 
+    notifier = Notifier(cfg.get("alerts", {}))
+
     scanner = Scanner(
         cfg.get("paths", []),
         cfg.get("file_masks", []),
-        database...,
-        notifier...,
+        database,
+        notifier,
         cfg.get("hash_algorithm", "sha256")
     )
-
     observer = Observer()
     handler = EventHandler(scanner)
     
