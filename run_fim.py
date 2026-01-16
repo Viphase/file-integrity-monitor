@@ -6,6 +6,8 @@ import time
 from watchdog.observers import Observer
 
 from fim.scanner import Scanner
+from fim.watcher import EventHandler
+
 from fim.config import Config
 
 
@@ -44,7 +46,11 @@ def main():
     )
 
     observer = Observer()
+    handler = EventHandler(scanner)
+    
     observer.start()
+    for path in cfg.get("paths", []):
+        observer.schedule(handler, path, recursive=True)
 
     logging.info("Watchdog observer started")
 
