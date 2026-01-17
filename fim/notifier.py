@@ -30,7 +30,7 @@ class Notifier:
 
         url = f"https://api.telegram.org/bot{token}/sendMessage"
         text = f"{title}\n{body}"
-
+        log.error(f"telegram message length = {len(text)}")
         requests.post(
             url,
             data={

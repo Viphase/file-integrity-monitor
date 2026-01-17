@@ -3,23 +3,23 @@
 
   "file_masks": ["*"],
 
-  "scan_interval_seconds": 1000,
+  "scan_interval_seconds": 10,
 
   "hash_algorithm": "sha256",
 
-  "database": "data/fim.db",
+  "database": "fim.db",
 
   "logging": {
     "level": "INFO",
-    "log_file": "logs/fim.log"
+    "log_dir": "logs/"
   },
 
   "alerts": {
     
     "telegram": {
       "enabled": true,
-      "bot_token": "5800028071:AAEv2YfLl8n_soGMf-dupsQsPf9qECh6-84",
-      "chat_id": "93372553"
+      "bot_token": "7466565760:AAE3gfNQ23lwtudCfMOImQrqI67DAv075N4",
+      "chat_id": "1878825031"
     },
     
     "email": {

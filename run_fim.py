@@ -1,8 +1,9 @@
 import logging
-import logging.handlers
+import os
 import sys
 import threading
 import time
+from datetime import datetime
 from watchdog.observers import Observer
 
 from fim.scanner import Scanner
@@ -12,7 +13,7 @@ from fim.config import Config
 from fim.database import DB
 
 
-def setup_logging(log_file, level):
+def setup_logging(log_dir, level):
     root = logging.getLogger()
     root.setLevel(level)
 
@@ -24,17 +25,23 @@ def setup_logging(log_file, level):
     sh.setFormatter(fmt)
     root.addHandler(sh)
 
-    if log_file:
-        fh = logging.handlers.RotatingFileHandler(log_file)
-        fh.setFormatter(fmt)
-        root.addHandler(fh)
+    if not log_dir:
+        return
+
+    os.makedirs(log_dir, exist_ok=True)
+
+    start_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    log_path = os.path.join(log_dir, f"fim-{start_time}.log")
+    fh = logging.FileHandler(log_path, encoding="utf-8")
+    fh.setFormatter(fmt)
+    root.addHandler(fh)
 
 
 def main():
     cfg = Config("config.json")
 
     setup_logging(
-        cfg.get("logging", {}).get("log_file"),
+        cfg.get("logging", {}).get("log_dir"),
         getattr(logging, cfg.get("logging", {}).get("level", "INFO"))
     )
 
