@@ -27,10 +27,18 @@ class Notifier:
     def send_telegram(self, title, body):
         token = self.tg.get("bot_token")
         chat_id = self.tg.get("chat_id")
-        
+
         url = f"https://api.telegram.org/bot{token}/sendMessage"
-        text = f"*{title}*\n```\n{body}\n```"
-        requests.post(url, data={"chat_id": chat_id, "text": text, "parse_mode": "Markdown"}, timeout=10).raise_for_status()
+        text = f"{title}\n{body}"
+
+        requests.post(
+            url,
+            data={
+                "chat_id": chat_id,
+                "text": text
+            },
+            timeout=10
+        ).raise_for_status()
 
     def send_email(self, title, body):
         cfg = self.email

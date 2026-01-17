@@ -1,5 +1,5 @@
 {
-  "paths": ["/Users/viphase/Downloads/8h-server"],
+  "paths": ["/Users/viphase/Documents/8h-server"],
 
   "file_masks": ["*"],
 
@@ -7,9 +7,7 @@
 
   "hash_algorithm": "sha256",
 
-  "database": {
-    "path": "data/fim.db"
-  },
+  "database": "data/fim.db",
 
   "logging": {
     "level": "INFO",
@@ -19,9 +17,9 @@
   "alerts": {
     
     "telegram": {
-      "enabled": false,
-      "bot_token": "",
-      "chat_id": ""
+      "enabled": true,
+      "bot_token": "5800028071:AAEv2YfLl8n_soGMf-dupsQsPf9qECh6-84",
+      "chat_id": "93372553"
     },
     
     "email": {
