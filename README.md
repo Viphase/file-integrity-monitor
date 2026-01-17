@@ -5,9 +5,9 @@
   - **`In development ⚙️`**
   - [x] File hash calculation (SHA-256)
   - [x] Periodic file system scan
-  - [ ] Real-time monitoring (watchdog)
-  - [ ] File create / modify / delete detection
-  - [ ] SQLite database storage
+  - [x] Real-time monitoring (watchdog)
+  - [x] File create / modify / delete detection
+  - [x] SQLite database storage
   - [x] Logging system
   - [ ] Telegram notifications
   - [ ] Email notifications

@@ -9,6 +9,7 @@ from fim.scanner import Scanner
 from fim.watcher import EventHandler
 from fim.notifier import Notifier
 from fim.config import Config
+from fim.database import DB
 
 
 def setup_logging(log_file, level):
@@ -37,7 +38,7 @@ def main():
         getattr(logging, cfg.get("logging", {}).get("level", "INFO"))
     )
 
-    database = 
+    database = DB(cfg.get("database", {}))
     notifier = Notifier(cfg.get("alerts", {}))
 
     scanner = Scanner(
