@@ -11,6 +11,7 @@
   - [x] Logging system
   - [ ] Telegram notifications
   - [ ] Email notifications
+  - [ ] Linux service
 
 ---
 

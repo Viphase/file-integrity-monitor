@@ -14,13 +14,13 @@ class Notifier:
         
         if self.tg.get("enabled"):
             try:
-                self._send_telegram(title, body)
+                self.send_telegram(title, body)
             except Exception:
                 log.exception("telegram failed")
         
         if self.email.get("enabled"):
             try:
-                self._send_email(title, body)
+                self.send_email(title, body)
             except Exception:
                 log.exception("email failed")
 
