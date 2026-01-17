@@ -40,8 +40,8 @@
   0. You need to have `Python 3.8+` and `pip` installed
   1. Open terminal and clone the repository:
      ```
-     git clone https://github.com/your-username/file-integrity-monitor.git
-     cd FileIntegrityMonitor
+     git clone https://github.com/Viphase/file-integrity-monitor.git
+     cd file-integrity-monitor
      ```
   2. Create and activate virtual environment  
 
