@@ -7,27 +7,27 @@ class EventHandler(FileSystemEventHandler):
     def __init__(self, scanner):
         self.scanner = scanner
 
-    def created(self, event):
-        if event.is_directory:
+    def on_created(self, event):
+        if event.is_directory or not self.scanner.ready:
             return
-        self._handle_change("created", event.src_path)
+        self.handle_change("created", event.src_path)
 
-    def modified(self, event):
-        if event.is_directory:
+    def on_modified(self, event):
+        if event.is_directory or not self.scanner.ready:
             return
-        self._handle_change("modified", event.src_path)
+        self.handle_change("modified", event.src_path)
 
-    def deleted(self, event):
-        if event.is_directory:
+    def on_deleted(self, event):
+        if event.is_directory or not self.scanner.ready:
             return
-        self._handle_delete(event.src_path)
+        self.handle_delete(event.src_path)
 
     def handle_change(self, kind, path):
-        if not self.scanner.match(path):
+        if not self.scanner.match(path) or not self.scanner.ready:
             return
         
         try:
-            new_hash = compute_hash(path, self.scanner.hash_algo)
+            new_hash = compute_hash(path, self.scanner.hash)
             mtime = os.path.getmtime(path)
         except Exception:
             return
@@ -40,8 +40,8 @@ class EventHandler(FileSystemEventHandler):
             self.scanner.db.insert_event(now, kind, path, old_hash, new_hash)
             self.scanner.notifier.notify(f"FIM: file {kind}", f"Path: {path}\nNew: {new_hash}")
 
-    def _handle_delete(self, path):
-        if not self.scanner.match(path):
+    def handle_delete(self, path):
+        if not self.scanner.match(path) or not self.scanner.ready:
             return
        
         old_hash = self.scanner.db.all_files().get(path)

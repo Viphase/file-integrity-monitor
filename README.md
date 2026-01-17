@@ -2,15 +2,15 @@
 
 - ## status:
 
-  - **`In development ⚙️`**
+  - **`Almost done 🛠️`**
   - [x] File hash calculation (SHA-256)
   - [x] Periodic file system scan
   - [x] Real-time monitoring (watchdog)
   - [x] File create / modify / delete detection
   - [x] SQLite database storage
   - [x] Logging system
-  - [ ] Telegram notifications
-  - [ ] Email notifications
+  - [x] Telegram notifications
+  - [x] Email notifications
   - [ ] Linux service
 
 ---
@@ -35,7 +35,7 @@
 
 ---
 
-- ## installation & use
+- ## installation
 
   0. You need to have `Python 3.8+` and `pip` installed
   1. Open terminal and clone the repository:
@@ -69,7 +69,7 @@
 
 ---
 
-- ## configuration
+- ## use * configuration
 
   - Main configuration file: **`config.json`**
 
@@ -79,6 +79,22 @@
     - `scan_interval_seconds` — periodic scan interval
     - `hash_algorithm` — hash algorithm (default: `sha256`)
     - `alerts` — notification settings (Telegram / Email)
+
+  - To run programme:
+    ```
+    python run_fim.py
+    ```
+
+  - Logs of every start of a programme is stored in `logs/` directory.
+  - Database is stored in `data/fim.db` (you can change the path in config file)
+
+  - If you want to reload the database, just delete the 
+  file of the old one (`data/fim.db`) and run programme again
+
+  - To connect to telegram you would need a bot token and chat id with your bot. You can get it by typing `https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates` and looking for `chat` and `id` lines where the numerical value would
+
+  > [!IMPORTANT]
+  > On **MacOS** instant watchdog events won't be handled properly, because of FSEvents, that watchdog on MacOS uses. So only scans will work.
 
 ---
 

@@ -45,6 +45,8 @@ def main():
         getattr(logging, cfg.get("logging", {}).get("level", "INFO"))
     )
 
+    db_path = cfg.get("database")
+    db_exists = os.path.exists(db_path)
     database = DB(cfg.get("database", {}))
     notifier = Notifier(cfg.get("alerts", {}))
 
@@ -55,12 +57,18 @@ def main():
         notifier,
         cfg.get("hash_algorithm", "sha256")
     )
-    observer = Observer()
     handler = EventHandler(scanner)
-    
-    observer.start()
+
+    if not db_exists:
+        logging.warning("Database not found, creating new baseline")
+        scanner.init_baseline()
+    else:
+        logging.info("Database found, skipping baseline")
+
+    observer = Observer()
     for path in cfg.get("paths", []):
         observer.schedule(handler, path, recursive=True)
+    observer.start()
 
     logging.info("Watchdog observer started")
 
