@@ -109,5 +109,7 @@
   - [x] Telegram notifications
   - [x] Email notifications
   - [ ] Linux service/daemon
+  - [ ] Multiple database support
+  - [ ] Track the exact changes in files
 
 ---
