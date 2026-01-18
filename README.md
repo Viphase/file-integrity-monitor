@@ -1,20 +1,5 @@
 # **File-Integrity-Monitor (FIM)**
 
-- ## status:
-
-  - **`Almost done 🛠️`**
-  - [x] File hash calculation (SHA-256)
-  - [x] Periodic file system scan
-  - [x] Real-time monitoring (watchdog)
-  - [x] File create / modify / delete detection
-  - [x] SQLite database storage
-  - [x] Logging system
-  - [x] Telegram notifications
-  - [x] Email notifications
-  - [ ] Linux service
-
----
-
 - ## description
 
   - A lightweight **File Integrity Monitoring (FIM)** utility written in Python.
@@ -109,5 +94,20 @@
     ```text
     WARNING deleted /home/user/project/config.yaml
     ```
+
+---
+
+- ## status & features to add:
+
+  - **`Completed ✅`**
+  - [x] File hash calculation (SHA-256)
+  - [x] Periodic file system scan
+  - [x] Real-time monitoring (watchdog)
+  - [x] File create / modify / delete detection
+  - [x] SQLite database storage
+  - [x] Logging system
+  - [x] Telegram notifications
+  - [x] Email notifications
+  - [ ] Linux service/daemon
 
 ---
